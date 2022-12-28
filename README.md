@@ -15,43 +15,8 @@ Zero Flag (ZF) ZF is set to 1 when the output C is 0.
 Sign Flag (SF) SF is set to 1 when the MSB of the output C is 1.
 Carry Flag (CF) CF is set to 1 when output carry/borrow is 1.
 
-opcode operation description
-000 RESET The ALU will be at the idle state (no operation state) and the
-output C will retain the result of the last operation performed.
-
-
-001 XNOR The ALU will perform bitwise XNOR operation on A, B. The
-bitwise operation will be performed serially at the positive edge of
-input clock i.e. during the first clock cycle, the operation will be
-performed on the LSBs (A0, B0) storing the result in C0 and in the
-next clock cycle the operation will be performed on A1, B1 updating C1 and finally, 
-on A3 and B3 saving it to C3 as long as the opcode is active.
-
-010 SUB
-The ALU will SUBTRACT B from A.. The operation will be
-performed serially at the positive edge of input clock i.e. during
-the first clock cycle, the operation will be performed on the LSBs
-(A0, B0) storing the result in C0 and in the next clock cycle the
-operation will be performed on A1, B1 updating C1 and finally, on
-A3 and B3 saving it to C3 as long as the opcode is active. During
-SUB operation, the MSBs of both A and B should be treated as
-sign bits i.e. A3 will be the sign bit for A and correspondingly B3
-will be the sign bit for B. So, the subtraction will occur between
-two signed binary numbers where the MSBs are the sign bits and
-the remaining bits are the values of the operands.
-
-
-011 NAND
-The ALU will perform bitwise NAND operation on A, B. The
-bitwise operation will be performed serially at the positive edge of
-input clock i.e. during the first clock cycle, the operation will be
-performed on the LSBs (A0, B0 ) storing the result in C0 and in the next clock cycle the operation will be performed on A1, B1
-updating C1 and finally, on A3 and B3 saving it to C3 as long as the opcode is active.
-
-
-100 ADD
-The ALU will perform ADD operation on A, B. The operation will
-be performed serially at the positive edge of input clock i.e. during
-the first clock cycle, the operation will be performed on the LSBs
-(A0, B0) storing the result in C0 and in the next clock cycle theoperation will be performed on A1, B1 updating C1 and finally, on
-A3 and B3 saving it to C3 as long as the opcode is active.
+<h3>Example</h3>
+<img src="https://github.com/kazi-md-al-wakil/CSE460-Project/blob/master/Example%201.jpg" margin-left= Auto>
+<img src="https://github.com/kazi-md-al-wakil/CSE460-Project/blob/master/Example%202.jpg";>
+<h3>Opcode operation description</h3>
+<img src="https://github.com/kazi-md-al-wakil/CSE460-Project/blob/master/Op%20Code%20Distribuiton.jpg";>
