@@ -1,0 +1,138 @@
+module labproject(clk, reset, w, A, B, currState, nextState, c, zf, sf, cf);
+
+	//inputs
+	input clk, reset;
+	input [2:0]w; //opcode 3 bit
+	input [3:0]A; //inputA 4 bit
+ 	input [3:0]B; //inputB 4 bit
+	
+	//outputs
+	output reg zf, sf, cf; //flags 1 bit
+	output reg [3:0]c; // output 4 bit
+	output reg [2:0] currState, nextState; 
+	
+	parameter 	reset1 = 3'b000, 
+				xnor1 = 3'b001,
+				xnor2 = 3'b101,
+				xnor3 = 3'b110,
+				sub1 = 3'b010,  
+				nand1= 3'b011, 
+				add1 = 3'b100; //states
+	
+	
+	always @(posedge clk, posedge reset)
+	begin
+		if(reset == 1)
+		begin
+			currState = reset1; 
+			nextState = reset1;
+			c[3] = 0;
+			c[2] = 0;
+			c[1] = 0;
+			c[0] = 0;
+		end
+		else
+		begin
+			currState = nextState;
+			case(currState)
+				reset1: if (w[2] == 0 && w[1] == 0 && w[0] == 0)
+						begin
+							nextState = reset1;
+							c[3] = 0;
+							c[2] = 0;
+							c[1] = 0;
+							c[0] = 0;
+						end
+						else if (w[2] == 0 && w[1] == 0 && w[0] == 1)
+						begin
+							nextState = xnor1;
+							if (A[0] == 1'b0 && B[0] == 1'b0) 
+							begin
+							   c[0] = 1'b1;
+							end
+							if (A[0] == 1'b1 && B[0] == 1'b1) 
+							begin
+							   c[0] = 1'b1;
+							end
+							else 
+							   c[0] = 1'b0;
+						end
+				//xnor1
+				xnor1: 	if (w[2] == 0 && w[1] == 0 && w[0] == 0)
+						begin
+							nextState = reset1;
+							c[3] = 0;
+							c[2] = 0;
+							c[1] = 0;
+							c[0] = 0;
+						end
+						else if (w[2] == 0 && w[1] == 0 && w[0] == 1)
+						begin
+							nextState = xnor2;
+							if (A[1] == 1'b0 && B[1] == 1'b0) 
+							begin
+							   c[1] = 1'b1;
+							end
+							if (A[1] == 1'b1 && B[1] == 1'b1) 
+							begin
+							   c[1] = 1'b1;
+							end
+							else 
+							   c[1] = 1'b0;
+						end
+				xnor2: 	if (w[2] == 0 && w[1] == 0 && w[0] == 0)
+						begin
+							nextState = reset1;
+							c[3] = 0;
+							c[2] = 0;
+							c[1] = 0;
+							c[0] = 0;
+						end
+						else if (w[2] == 0 && w[1] == 0 && w[0] == 1)
+						begin
+							nextState = xnor3;
+							if (A[2] == 1'b0 && B[2] == 1'b0) 
+							begin
+							   c[2] = 1'b1;
+							end
+							if (A[2] == 1'b1 && B[2] == 1'b1) 
+							begin
+							   c[2] = 1'b1;
+							end
+							else 
+							   c[2] = 1'b0;
+						end
+					
+				xnor3:  if (w[2] == 0 && w[1] == 0 && w[0] == 0)
+						begin
+							nextState = reset1;
+							c[3] = 0;
+							c[2] = 0;
+							c[1] = 0;
+							c[0] = 0;
+						end
+						else if (w[2] == 0 && w[1] == 0 && w[0] == 1)
+						begin
+							nextState = reset1;
+							if (A[3] == 1'b0 && B[3] == 1'b0) 
+							begin
+							   c[3] = 1'b1;
+							end
+							if (A[3] == 1'b1 && B[3] == 1'b1) 
+							begin
+							   c[3] = 1'b1;
+							end
+							else 
+							   c[3] = 1'b0;
+						end
+				//sub1: 
+
+				//nand1:
+				 
+				//add1: 
+			endcase
+		end
+		
+	end
+	
+endmodule

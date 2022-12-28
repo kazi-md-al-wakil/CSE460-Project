@@ -1,0 +1,572 @@
+Classic Timing Analyzer report for labproject
+Tue Dec 20 05:21:48 2022
+Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'clk'
+  6. tsu
+  7. tco
+  8. th
+  9. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                              ;
++------------------------------+-------+---------------+----------------------------------+---------+-----------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From    ; To        ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+---------+-----------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 12.300 ns                        ; A[0]    ; temp[1]   ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 7.000 ns                         ; zf~reg0 ; zf        ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -0.500 ns                        ; B[3]    ; tempB[3]  ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 109.89 MHz ( period = 9.100 ns ) ; temp[2] ; c[1]~reg0 ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;         ;           ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+---------+-----------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EPF10K30ETC144-1   ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                         ;
++-------+------------------------------------------------+-------------------+-------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From              ; To                ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+-------------------+-------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 109.89 MHz ( period = 9.100 ns )               ; temp[2]           ; c[1]~reg0         ; clk        ; clk      ; None                        ; None                      ; 8.400 ns                ;
+; N/A   ; 112.36 MHz ( period = 8.900 ns )               ; tc3               ; c[1]~reg0         ; clk        ; clk      ; None                        ; None                      ; 8.200 ns                ;
+; N/A   ; 113.64 MHz ( period = 8.800 ns )               ; temp[1]           ; c[1]~reg0         ; clk        ; clk      ; None                        ; None                      ; 8.100 ns                ;
+; N/A   ; 114.94 MHz ( period = 8.700 ns )               ; tempB[1]          ; c[1]~reg0         ; clk        ; clk      ; None                        ; None                      ; 8.000 ns                ;
+; N/A   ; 119.05 MHz ( period = 8.400 ns )               ; c[1]~reg0         ; c[1]~reg0         ; clk        ; clk      ; None                        ; None                      ; 7.700 ns                ;
+; N/A   ; 121.95 MHz ( period = 8.200 ns )               ; nextState[2]~reg0 ; c[1]~reg0         ; clk        ; clk      ; None                        ; None                      ; 7.500 ns                ;
+; N/A   ; 121.95 MHz ( period = 8.200 ns )               ; tempB[2]          ; c[1]~reg0         ; clk        ; clk      ; None                        ; None                      ; 7.500 ns                ;
+; N/A   ; 123.46 MHz ( period = 8.100 ns )               ; carryBit          ; c[1]~reg0         ; clk        ; clk      ; None                        ; None                      ; 7.400 ns                ;
+; N/A   ; 126.58 MHz ( period = 7.900 ns )               ; carryBit          ; carryBit          ; clk        ; clk      ; None                        ; None                      ; 7.200 ns                ;
+; N/A   ; 131.58 MHz ( period = 7.600 ns )               ; tempB[3]          ; c[1]~reg0         ; clk        ; clk      ; None                        ; None                      ; 6.900 ns                ;
+; N/A   ; 131.58 MHz ( period = 7.600 ns )               ; carryBit          ; c[3]~reg0         ; clk        ; clk      ; None                        ; None                      ; 6.900 ns                ;
+; N/A   ; 133.33 MHz ( period = 7.500 ns )               ; temp[3]           ; carryBit          ; clk        ; clk      ; None                        ; None                      ; 6.800 ns                ;
+; N/A   ; 133.33 MHz ( period = 7.500 ns )               ; tempB[3]          ; carryBit          ; clk        ; clk      ; None                        ; None                      ; 6.800 ns                ;
+; N/A   ; 133.33 MHz ( period = 7.500 ns )               ; tc3               ; temp[2]           ; clk        ; clk      ; None                        ; None                      ; 6.800 ns                ;
+; N/A   ; 133.33 MHz ( period = 7.500 ns )               ; tempB[3]          ; temp[2]           ; clk        ; clk      ; None                        ; None                      ; 6.800 ns                ;
+; N/A   ; 135.14 MHz ( period = 7.400 ns )               ; temp[3]           ; c[1]~reg0         ; clk        ; clk      ; None                        ; None                      ; 6.700 ns                ;
+; N/A   ; 135.14 MHz ( period = 7.400 ns )               ; nextState[2]~reg0 ; tempB[1]          ; clk        ; clk      ; None                        ; None                      ; 6.700 ns                ;
+; N/A   ; 135.14 MHz ( period = 7.400 ns )               ; nextState[2]~reg0 ; temp[1]           ; clk        ; clk      ; None                        ; None                      ; 6.700 ns                ;
+; N/A   ; 136.99 MHz ( period = 7.300 ns )               ; temp[3]           ; temp[2]           ; clk        ; clk      ; None                        ; None                      ; 6.600 ns                ;
+; N/A   ; 138.89 MHz ( period = 7.200 ns )               ; nextState[0]~reg0 ; c[3]~reg0         ; clk        ; clk      ; None                        ; None                      ; 6.500 ns                ;
+; N/A   ; 138.89 MHz ( period = 7.200 ns )               ; temp[2]           ; carryBit          ; clk        ; clk      ; None                        ; None                      ; 6.500 ns                ;
+; N/A   ; 138.89 MHz ( period = 7.200 ns )               ; tempB[3]          ; tempB[2]          ; clk        ; clk      ; None                        ; None                      ; 6.500 ns                ;
+; N/A   ; 140.85 MHz ( period = 7.100 ns )               ; nextState[2]~reg0 ; c[3]~reg0         ; clk        ; clk      ; None                        ; None                      ; 6.400 ns                ;
+; N/A   ; 140.85 MHz ( period = 7.100 ns )               ; nextState[0]~reg0 ; tempB[1]          ; clk        ; clk      ; None                        ; None                      ; 6.400 ns                ;
+; N/A   ; 140.85 MHz ( period = 7.100 ns )               ; nextState[0]~reg0 ; temp[1]           ; clk        ; clk      ; None                        ; None                      ; 6.400 ns                ;
+; N/A   ; 140.85 MHz ( period = 7.100 ns )               ; temp[3]           ; tempB[2]          ; clk        ; clk      ; None                        ; None                      ; 6.400 ns                ;
+; N/A   ; 142.86 MHz ( period = 7.000 ns )               ; tc3               ; c[2]~reg0         ; clk        ; clk      ; None                        ; None                      ; 6.300 ns                ;
+; N/A   ; 142.86 MHz ( period = 7.000 ns )               ; temp[2]           ; c[2]~reg0         ; clk        ; clk      ; None                        ; None                      ; 6.300 ns                ;
+; N/A   ; 142.86 MHz ( period = 7.000 ns )               ; tc3               ; c[3]~reg0         ; clk        ; clk      ; None                        ; None                      ; 6.300 ns                ;
+; N/A   ; 142.86 MHz ( period = 7.000 ns )               ; tc3               ; tempB[2]          ; clk        ; clk      ; None                        ; None                      ; 6.300 ns                ;
+; N/A   ; 142.86 MHz ( period = 7.000 ns )               ; nextState[1]~reg0 ; temp[2]           ; clk        ; clk      ; None                        ; None                      ; 6.300 ns                ;
+; N/A   ; 144.93 MHz ( period = 6.900 ns )               ; temp[3]           ; c[2]~reg0         ; clk        ; clk      ; None                        ; None                      ; 6.200 ns                ;
+; N/A   ; 144.93 MHz ( period = 6.900 ns )               ; tempB[2]          ; carryBit          ; clk        ; clk      ; None                        ; None                      ; 6.200 ns                ;
+; N/A   ; 147.06 MHz ( period = 6.800 ns )               ; tempB[3]          ; c[2]~reg0         ; clk        ; clk      ; None                        ; None                      ; 6.100 ns                ;
+; N/A   ; 147.06 MHz ( period = 6.800 ns )               ; tempB[1]          ; temp[2]           ; clk        ; clk      ; None                        ; None                      ; 6.100 ns                ;
+; N/A   ; 149.25 MHz ( period = 6.700 ns )               ; nextState[1]~reg0 ; tempB[1]          ; clk        ; clk      ; None                        ; None                      ; 6.000 ns                ;
+; N/A   ; 149.25 MHz ( period = 6.700 ns )               ; nextState[1]~reg0 ; temp[1]           ; clk        ; clk      ; None                        ; None                      ; 6.000 ns                ;
+; N/A   ; 149.25 MHz ( period = 6.700 ns )               ; nextState[2]~reg0 ; temp[2]           ; clk        ; clk      ; None                        ; None                      ; 6.000 ns                ;
+; N/A   ; 151.52 MHz ( period = 6.600 ns )               ; nextState[1]~reg0 ; c[3]~reg0         ; clk        ; clk      ; None                        ; None                      ; 5.900 ns                ;
+; N/A   ; 151.52 MHz ( period = 6.600 ns )               ; nextState[1]~reg0 ; tempB[2]          ; clk        ; clk      ; None                        ; None                      ; 5.900 ns                ;
+; N/A   ; 153.85 MHz ( period = 6.500 ns )               ; nextState[0]~reg0 ; temp[2]           ; clk        ; clk      ; None                        ; None                      ; 5.800 ns                ;
+; N/A   ; 153.85 MHz ( period = 6.500 ns )               ; temp[1]           ; temp[2]           ; clk        ; clk      ; None                        ; None                      ; 5.800 ns                ;
+; N/A   ; 156.25 MHz ( period = 6.400 ns )               ; carryBit          ; zf~reg0           ; clk        ; clk      ; None                        ; None                      ; 5.700 ns                ;
+; N/A   ; 158.73 MHz ( period = 6.300 ns )               ; nextState[2]~reg0 ; tempB[2]          ; clk        ; clk      ; None                        ; None                      ; 5.600 ns                ;
+; N/A   ; 158.73 MHz ( period = 6.300 ns )               ; tempB[1]          ; tempB[2]          ; clk        ; clk      ; None                        ; None                      ; 5.600 ns                ;
+; N/A   ; 161.29 MHz ( period = 6.200 ns )               ; nextState[2]~reg0 ; c[0]~reg0         ; clk        ; clk      ; None                        ; None                      ; 5.500 ns                ;
+; N/A   ; 161.29 MHz ( period = 6.200 ns )               ; temp[1]           ; tempB[2]          ; clk        ; clk      ; None                        ; None                      ; 5.500 ns                ;
+; N/A   ; 163.93 MHz ( period = 6.100 ns )               ; nextState[1]~reg0 ; c[2]~reg0         ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 163.93 MHz ( period = 6.100 ns )               ; c[2]~reg0         ; c[2]~reg0         ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 163.93 MHz ( period = 6.100 ns )               ; nextState[0]~reg0 ; tempB[2]          ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; nextState[1]~reg0 ; c[0]~reg0         ; clk        ; clk      ; None                        ; None                      ; 5.300 ns                ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; nextState[2]~reg0 ; c[2]~reg0         ; clk        ; clk      ; None                        ; None                      ; 5.300 ns                ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; carryBit          ; c[2]~reg0         ; clk        ; clk      ; None                        ; None                      ; 5.300 ns                ;
+; N/A   ; 169.49 MHz ( period = 5.900 ns )               ; nextState[1]~reg0 ; carryBit          ; clk        ; clk      ; None                        ; None                      ; 5.200 ns                ;
+; N/A   ; 172.41 MHz ( period = 5.800 ns )               ; nextState[0]~reg0 ; c[0]~reg0         ; clk        ; clk      ; None                        ; None                      ; 5.100 ns                ;
+; N/A   ; 172.41 MHz ( period = 5.800 ns )               ; nextState[0]~reg0 ; carryBit          ; clk        ; clk      ; None                        ; None                      ; 5.100 ns                ;
+; N/A   ; 175.44 MHz ( period = 5.700 ns )               ; nextState[0]~reg0 ; zf~reg0           ; clk        ; clk      ; None                        ; None                      ; 5.000 ns                ;
+; N/A   ; 175.44 MHz ( period = 5.700 ns )               ; nextState[1]~reg0 ; zf~reg0           ; clk        ; clk      ; None                        ; None                      ; 5.000 ns                ;
+; N/A   ; 175.44 MHz ( period = 5.700 ns )               ; nextState[2]~reg0 ; zf~reg0           ; clk        ; clk      ; None                        ; None                      ; 5.000 ns                ;
+; N/A   ; 175.44 MHz ( period = 5.700 ns )               ; nextState[1]~reg0 ; sf~reg0           ; clk        ; clk      ; None                        ; None                      ; 5.000 ns                ;
+; N/A   ; 175.44 MHz ( period = 5.700 ns )               ; nextState[2]~reg0 ; sf~reg0           ; clk        ; clk      ; None                        ; None                      ; 5.000 ns                ;
+; N/A   ; 175.44 MHz ( period = 5.700 ns )               ; carryBit          ; cf~reg0           ; clk        ; clk      ; None                        ; None                      ; 5.000 ns                ;
+; N/A   ; 178.57 MHz ( period = 5.600 ns )               ; nextState[1]~reg0 ; c[1]~reg0         ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 178.57 MHz ( period = 5.600 ns )               ; carryBit          ; sf~reg0           ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 181.82 MHz ( period = 5.500 ns )               ; nextState[2]~reg0 ; tc3               ; clk        ; clk      ; None                        ; None                      ; 4.800 ns                ;
+; N/A   ; 181.82 MHz ( period = 5.500 ns )               ; nextState[2]~reg0 ; temp[3]           ; clk        ; clk      ; None                        ; None                      ; 4.800 ns                ;
+; N/A   ; 181.82 MHz ( period = 5.500 ns )               ; nextState[2]~reg0 ; tempB[3]          ; clk        ; clk      ; None                        ; None                      ; 4.800 ns                ;
+; N/A   ; 185.19 MHz ( period = 5.400 ns )               ; nextState[0]~reg0 ; sf~reg0           ; clk        ; clk      ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 188.68 MHz ( period = 5.300 ns )               ; nextState[0]~reg0 ; c[2]~reg0         ; clk        ; clk      ; None                        ; None                      ; 4.600 ns                ;
+; N/A   ; 192.31 MHz ( period = 5.200 ns )               ; nextState[0]~reg0 ; tc3               ; clk        ; clk      ; None                        ; None                      ; 4.500 ns                ;
+; N/A   ; 192.31 MHz ( period = 5.200 ns )               ; nextState[0]~reg0 ; temp[3]           ; clk        ; clk      ; None                        ; None                      ; 4.500 ns                ;
+; N/A   ; 192.31 MHz ( period = 5.200 ns )               ; nextState[0]~reg0 ; tempB[3]          ; clk        ; clk      ; None                        ; None                      ; 4.500 ns                ;
+; N/A   ; 200.00 MHz ( period = 5.000 ns )               ; nextState[0]~reg0 ; cf~reg0           ; clk        ; clk      ; None                        ; None                      ; 4.300 ns                ;
+; N/A   ; 200.00 MHz ( period = 5.000 ns )               ; nextState[1]~reg0 ; cf~reg0           ; clk        ; clk      ; None                        ; None                      ; 4.300 ns                ;
+; N/A   ; 200.00 MHz ( period = 5.000 ns )               ; nextState[2]~reg0 ; cf~reg0           ; clk        ; clk      ; None                        ; None                      ; 4.300 ns                ;
+; N/A   ; 204.08 MHz ( period = 4.900 ns )               ; tc3               ; zf~reg0           ; clk        ; clk      ; None                        ; None                      ; 4.200 ns                ;
+; N/A   ; 208.33 MHz ( period = 4.800 ns )               ; nextState[0]~reg0 ; c[1]~reg0         ; clk        ; clk      ; None                        ; None                      ; 4.100 ns                ;
+; N/A   ; 208.33 MHz ( period = 4.800 ns )               ; tempB[2]          ; c[2]~reg0         ; clk        ; clk      ; None                        ; None                      ; 4.100 ns                ;
+; N/A   ; 208.33 MHz ( period = 4.800 ns )               ; nextState[1]~reg0 ; tc3               ; clk        ; clk      ; None                        ; None                      ; 4.100 ns                ;
+; N/A   ; 208.33 MHz ( period = 4.800 ns )               ; tempB[1]          ; carryBit          ; clk        ; clk      ; None                        ; None                      ; 4.100 ns                ;
+; N/A   ; 208.33 MHz ( period = 4.800 ns )               ; nextState[1]~reg0 ; temp[3]           ; clk        ; clk      ; None                        ; None                      ; 4.100 ns                ;
+; N/A   ; 208.33 MHz ( period = 4.800 ns )               ; nextState[1]~reg0 ; tempB[3]          ; clk        ; clk      ; None                        ; None                      ; 4.100 ns                ;
+; N/A   ; 208.33 MHz ( period = 4.800 ns )               ; temp[2]           ; temp[2]           ; clk        ; clk      ; None                        ; None                      ; 4.100 ns                ;
+; N/A   ; 212.77 MHz ( period = 4.700 ns )               ; nextState[1]~reg0 ; nextState[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.000 ns                ;
+; N/A   ; 217.39 MHz ( period = 4.600 ns )               ; nextState[2]~reg0 ; nextState[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 3.900 ns                ;
+; N/A   ; 217.39 MHz ( period = 4.600 ns )               ; c[0]~reg0         ; zf~reg0           ; clk        ; clk      ; None                        ; None                      ; 3.900 ns                ;
+; N/A   ; 217.39 MHz ( period = 4.600 ns )               ; nextState[2]~reg0 ; carryBit          ; clk        ; clk      ; None                        ; None                      ; 3.900 ns                ;
+; N/A   ; 217.39 MHz ( period = 4.600 ns )               ; temp[1]           ; carryBit          ; clk        ; clk      ; None                        ; None                      ; 3.900 ns                ;
+; N/A   ; 227.27 MHz ( period = 4.400 ns )               ; c[1]~reg0         ; zf~reg0           ; clk        ; clk      ; None                        ; None                      ; 3.700 ns                ;
+; N/A   ; 238.10 MHz ( period = 4.200 ns )               ; nextState[1]~reg0 ; nextState[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 3.500 ns                ;
+; N/A   ; 243.90 MHz ( period = 4.100 ns )               ; nextState[0]~reg0 ; nextState[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 3.400 ns                ;
+; N/A   ; 243.90 MHz ( period = 4.100 ns )               ; nextState[2]~reg0 ; nextState[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 3.400 ns                ;
+; N/A   ; 243.90 MHz ( period = 4.100 ns )               ; c[2]~reg0         ; zf~reg0           ; clk        ; clk      ; None                        ; None                      ; 3.400 ns                ;
+; N/A   ; 250.00 MHz ( period = 4.000 ns )               ; nextState[0]~reg0 ; nextState[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 3.300 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; tc3               ; sf~reg0           ; clk        ; clk      ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; tempB[2]          ; tempB[2]          ; clk        ; clk      ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; nextState[0]~reg0 ; nextState[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 3.100 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; c[0]~reg0         ; c[0]~reg0         ; clk        ; clk      ; None                        ; None                      ; 2.900 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sf~reg0           ; sf~reg0           ; clk        ; clk      ; None                        ; None                      ; 2.900 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; nextState[1]~reg0 ; currState[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 2.000 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; c[3]~reg0         ; c[3]~reg0         ; clk        ; clk      ; None                        ; None                      ; 1.600 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; tc3               ; tc3               ; clk        ; clk      ; None                        ; None                      ; 1.600 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; temp[3]           ; temp[3]           ; clk        ; clk      ; None                        ; None                      ; 1.600 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; tempB[3]          ; tempB[3]          ; clk        ; clk      ; None                        ; None                      ; 1.600 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; nextState[2]~reg0 ; currState[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; nextState[1]~reg0 ; nextState[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; nextState[2]~reg0 ; nextState[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; zf~reg0           ; zf~reg0           ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; cf~reg0           ; cf~reg0           ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; nextState[0]~reg0 ; currState[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; tempB[1]          ; tempB[1]          ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; temp[1]           ; temp[1]           ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
++-------+------------------------------------------------+-------------------+-------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-------------------------------------------------------------------------+
+; tsu                                                                     ;
++-------+--------------+------------+------+-------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From ; To                ; To Clock ;
++-------+--------------+------------+------+-------------------+----------+
+; N/A   ; None         ; 12.300 ns  ; A[0] ; temp[1]           ; clk      ;
+; N/A   ; None         ; 12.200 ns  ; A[0] ; tempB[1]          ; clk      ;
+; N/A   ; None         ; 11.500 ns  ; B[1] ; temp[1]           ; clk      ;
+; N/A   ; None         ; 11.400 ns  ; A[1] ; tempB[1]          ; clk      ;
+; N/A   ; None         ; 11.400 ns  ; A[1] ; temp[1]           ; clk      ;
+; N/A   ; None         ; 11.300 ns  ; B[1] ; tempB[1]          ; clk      ;
+; N/A   ; None         ; 11.100 ns  ; A[0] ; tempB[2]          ; clk      ;
+; N/A   ; None         ; 10.800 ns  ; B[0] ; temp[1]           ; clk      ;
+; N/A   ; None         ; 10.700 ns  ; B[0] ; tempB[1]          ; clk      ;
+; N/A   ; None         ; 10.600 ns  ; A[0] ; temp[2]           ; clk      ;
+; N/A   ; None         ; 10.600 ns  ; B[2] ; carryBit          ; clk      ;
+; N/A   ; None         ; 10.400 ns  ; A[0] ; tc3               ; clk      ;
+; N/A   ; None         ; 10.400 ns  ; A[3] ; c[3]~reg0         ; clk      ;
+; N/A   ; None         ; 10.300 ns  ; A[1] ; tempB[2]          ; clk      ;
+; N/A   ; None         ; 10.100 ns  ; B[1] ; tempB[2]          ; clk      ;
+; N/A   ; None         ; 9.800 ns   ; B[1] ; temp[2]           ; clk      ;
+; N/A   ; None         ; 9.700 ns   ; A[2] ; carryBit          ; clk      ;
+; N/A   ; None         ; 9.700 ns   ; A[1] ; temp[2]           ; clk      ;
+; N/A   ; None         ; 9.600 ns   ; B[0] ; tempB[2]          ; clk      ;
+; N/A   ; None         ; 9.600 ns   ; A[1] ; tc3               ; clk      ;
+; N/A   ; None         ; 9.500 ns   ; B[2] ; temp[1]           ; clk      ;
+; N/A   ; None         ; 9.500 ns   ; A[3] ; carryBit          ; clk      ;
+; N/A   ; None         ; 9.400 ns   ; B[1] ; tc3               ; clk      ;
+; N/A   ; None         ; 9.300 ns   ; A[2] ; tempB[1]          ; clk      ;
+; N/A   ; None         ; 9.300 ns   ; A[2] ; temp[1]           ; clk      ;
+; N/A   ; None         ; 9.300 ns   ; B[2] ; tempB[1]          ; clk      ;
+; N/A   ; None         ; 9.300 ns   ; A[3] ; temp[1]           ; clk      ;
+; N/A   ; None         ; 9.200 ns   ; A[3] ; tempB[1]          ; clk      ;
+; N/A   ; None         ; 9.200 ns   ; w[2] ; carryBit          ; clk      ;
+; N/A   ; None         ; 9.200 ns   ; w[0] ; carryBit          ; clk      ;
+; N/A   ; None         ; 9.100 ns   ; B[0] ; temp[2]           ; clk      ;
+; N/A   ; None         ; 9.000 ns   ; w[1] ; carryBit          ; clk      ;
+; N/A   ; None         ; 8.900 ns   ; B[0] ; tc3               ; clk      ;
+; N/A   ; None         ; 8.900 ns   ; B[2] ; c[2]~reg0         ; clk      ;
+; N/A   ; None         ; 8.800 ns   ; w[2] ; c[3]~reg0         ; clk      ;
+; N/A   ; None         ; 8.800 ns   ; w[0] ; c[3]~reg0         ; clk      ;
+; N/A   ; None         ; 8.700 ns   ; w[1] ; c[3]~reg0         ; clk      ;
+; N/A   ; None         ; 8.600 ns   ; B[1] ; carryBit          ; clk      ;
+; N/A   ; None         ; 8.300 ns   ; A[0] ; carryBit          ; clk      ;
+; N/A   ; None         ; 8.300 ns   ; A[2] ; c[2]~reg0         ; clk      ;
+; N/A   ; None         ; 8.300 ns   ; A[1] ; carryBit          ; clk      ;
+; N/A   ; None         ; 8.300 ns   ; A[3] ; zf~reg0           ; clk      ;
+; N/A   ; None         ; 8.200 ns   ; A[2] ; tempB[2]          ; clk      ;
+; N/A   ; None         ; 8.200 ns   ; B[2] ; tempB[2]          ; clk      ;
+; N/A   ; None         ; 8.100 ns   ; A[3] ; tempB[2]          ; clk      ;
+; N/A   ; None         ; 7.800 ns   ; B[2] ; temp[2]           ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; A[2] ; temp[2]           ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; A[3] ; temp[2]           ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; w[2] ; c[1]~reg0         ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; w[1] ; zf~reg0           ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; w[0] ; zf~reg0           ; clk      ;
+; N/A   ; None         ; 7.500 ns   ; A[2] ; tc3               ; clk      ;
+; N/A   ; None         ; 7.500 ns   ; B[2] ; tc3               ; clk      ;
+; N/A   ; None         ; 7.500 ns   ; A[3] ; sf~reg0           ; clk      ;
+; N/A   ; None         ; 7.500 ns   ; w[0] ; c[1]~reg0         ; clk      ;
+; N/A   ; None         ; 7.400 ns   ; B[3] ; c[3]~reg0         ; clk      ;
+; N/A   ; None         ; 7.400 ns   ; A[3] ; tc3               ; clk      ;
+; N/A   ; None         ; 7.400 ns   ; w[2] ; zf~reg0           ; clk      ;
+; N/A   ; None         ; 7.300 ns   ; A[3] ; cf~reg0           ; clk      ;
+; N/A   ; None         ; 7.300 ns   ; w[1] ; c[1]~reg0         ; clk      ;
+; N/A   ; None         ; 7.200 ns   ; B[0] ; carryBit          ; clk      ;
+; N/A   ; None         ; 7.100 ns   ; w[2] ; temp[2]           ; clk      ;
+; N/A   ; None         ; 7.100 ns   ; w[0] ; temp[2]           ; clk      ;
+; N/A   ; None         ; 7.000 ns   ; B[1] ; c[1]~reg0         ; clk      ;
+; N/A   ; None         ; 6.900 ns   ; w[2] ; c[2]~reg0         ; clk      ;
+; N/A   ; None         ; 6.900 ns   ; w[1] ; temp[2]           ; clk      ;
+; N/A   ; None         ; 6.900 ns   ; w[0] ; c[2]~reg0         ; clk      ;
+; N/A   ; None         ; 6.800 ns   ; A[1] ; c[1]~reg0         ; clk      ;
+; N/A   ; None         ; 6.700 ns   ; B[0] ; c[0]~reg0         ; clk      ;
+; N/A   ; None         ; 6.700 ns   ; B[3] ; carryBit          ; clk      ;
+; N/A   ; None         ; 6.700 ns   ; w[2] ; tempB[2]          ; clk      ;
+; N/A   ; None         ; 6.700 ns   ; w[1] ; c[2]~reg0         ; clk      ;
+; N/A   ; None         ; 6.700 ns   ; w[0] ; tempB[2]          ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; w[2] ; cf~reg0           ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; w[1] ; nextState[0]~reg0 ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; w[1] ; cf~reg0           ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; w[0] ; nextState[0]~reg0 ; clk      ;
+; N/A   ; None         ; 6.500 ns   ; w[1] ; tempB[2]          ; clk      ;
+; N/A   ; None         ; 6.500 ns   ; w[0] ; cf~reg0           ; clk      ;
+; N/A   ; None         ; 6.400 ns   ; w[2] ; nextState[0]~reg0 ; clk      ;
+; N/A   ; None         ; 6.300 ns   ; w[1] ; nextState[1]~reg0 ; clk      ;
+; N/A   ; None         ; 6.300 ns   ; w[0] ; nextState[1]~reg0 ; clk      ;
+; N/A   ; None         ; 6.100 ns   ; w[2] ; nextState[1]~reg0 ; clk      ;
+; N/A   ; None         ; 6.100 ns   ; w[1] ; nextState[2]~reg0 ; clk      ;
+; N/A   ; None         ; 6.100 ns   ; w[0] ; nextState[2]~reg0 ; clk      ;
+; N/A   ; None         ; 6.000 ns   ; A[0] ; c[0]~reg0         ; clk      ;
+; N/A   ; None         ; 6.000 ns   ; w[1] ; c[0]~reg0         ; clk      ;
+; N/A   ; None         ; 6.000 ns   ; w[0] ; c[0]~reg0         ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; w[2] ; nextState[2]~reg0 ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; w[2] ; c[0]~reg0         ; clk      ;
+; N/A   ; None         ; 5.700 ns   ; w[2] ; sf~reg0           ; clk      ;
+; N/A   ; None         ; 5.700 ns   ; w[0] ; sf~reg0           ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; B[3] ; tempB[1]          ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; B[3] ; temp[1]           ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; w[1] ; sf~reg0           ; clk      ;
+; N/A   ; None         ; 5.500 ns   ; B[3] ; zf~reg0           ; clk      ;
+; N/A   ; None         ; 5.200 ns   ; w[2] ; tempB[1]          ; clk      ;
+; N/A   ; None         ; 5.200 ns   ; w[2] ; temp[1]           ; clk      ;
+; N/A   ; None         ; 5.100 ns   ; w[1] ; tempB[1]          ; clk      ;
+; N/A   ; None         ; 5.100 ns   ; w[1] ; temp[1]           ; clk      ;
+; N/A   ; None         ; 5.100 ns   ; w[0] ; tempB[1]          ; clk      ;
+; N/A   ; None         ; 5.100 ns   ; w[0] ; temp[1]           ; clk      ;
+; N/A   ; None         ; 4.700 ns   ; B[3] ; sf~reg0           ; clk      ;
+; N/A   ; None         ; 4.500 ns   ; B[3] ; cf~reg0           ; clk      ;
+; N/A   ; None         ; 4.500 ns   ; B[3] ; tempB[2]          ; clk      ;
+; N/A   ; None         ; 4.400 ns   ; A[3] ; temp[3]           ; clk      ;
+; N/A   ; None         ; 3.900 ns   ; B[3] ; temp[2]           ; clk      ;
+; N/A   ; None         ; 3.800 ns   ; w[2] ; tc3               ; clk      ;
+; N/A   ; None         ; 3.800 ns   ; w[2] ; temp[3]           ; clk      ;
+; N/A   ; None         ; 3.800 ns   ; w[2] ; tempB[3]          ; clk      ;
+; N/A   ; None         ; 3.700 ns   ; B[3] ; tc3               ; clk      ;
+; N/A   ; None         ; 3.600 ns   ; w[0] ; tc3               ; clk      ;
+; N/A   ; None         ; 3.600 ns   ; w[0] ; temp[3]           ; clk      ;
+; N/A   ; None         ; 3.600 ns   ; w[0] ; tempB[3]          ; clk      ;
+; N/A   ; None         ; 2.500 ns   ; w[1] ; tc3               ; clk      ;
+; N/A   ; None         ; 2.500 ns   ; w[1] ; temp[3]           ; clk      ;
+; N/A   ; None         ; 2.500 ns   ; w[1] ; tempB[3]          ; clk      ;
+; N/A   ; None         ; 1.600 ns   ; B[3] ; tempB[3]          ; clk      ;
++-------+--------------+------------+------+-------------------+----------+
+
+
++-----------------------------------------------------------------------------------+
+; tco                                                                               ;
++-------+--------------+------------+-------------------+--------------+------------+
+; Slack ; Required tco ; Actual tco ; From              ; To           ; From Clock ;
++-------+--------------+------------+-------------------+--------------+------------+
+; N/A   ; None         ; 7.000 ns   ; zf~reg0           ; zf           ; clk        ;
+; N/A   ; None         ; 6.800 ns   ; cf~reg0           ; cf           ; clk        ;
+; N/A   ; None         ; 6.600 ns   ; c[3]~reg0         ; c[3]         ; clk        ;
+; N/A   ; None         ; 6.500 ns   ; currState[1]~reg0 ; currState[1] ; clk        ;
+; N/A   ; None         ; 6.400 ns   ; c[2]~reg0         ; c[2]         ; clk        ;
+; N/A   ; None         ; 6.400 ns   ; nextState[1]~reg0 ; nextState[1] ; clk        ;
+; N/A   ; None         ; 6.400 ns   ; nextState[0]~reg0 ; nextState[0] ; clk        ;
+; N/A   ; None         ; 6.400 ns   ; currState[0]~reg0 ; currState[0] ; clk        ;
+; N/A   ; None         ; 6.300 ns   ; c[0]~reg0         ; c[0]         ; clk        ;
+; N/A   ; None         ; 6.200 ns   ; c[1]~reg0         ; c[1]         ; clk        ;
+; N/A   ; None         ; 6.200 ns   ; currState[2]~reg0 ; currState[2] ; clk        ;
+; N/A   ; None         ; 6.000 ns   ; sf~reg0           ; sf           ; clk        ;
+; N/A   ; None         ; 6.000 ns   ; nextState[2]~reg0 ; nextState[2] ; clk        ;
++-------+--------------+------------+-------------------+--------------+------------+
+
+
++--------------------------------------------------------------------------------+
+; th                                                                             ;
++---------------+-------------+------------+------+-------------------+----------+
+; Minimum Slack ; Required th ; Actual th  ; From ; To                ; To Clock ;
++---------------+-------------+------------+------+-------------------+----------+
+; N/A           ; None        ; -0.500 ns  ; B[3] ; tempB[3]          ; clk      ;
+; N/A           ; None        ; -1.300 ns  ; w[2] ; nextState[1]~reg0 ; clk      ;
+; N/A           ; None        ; -1.300 ns  ; w[1] ; nextState[2]~reg0 ; clk      ;
+; N/A           ; None        ; -1.400 ns  ; w[1] ; tc3               ; clk      ;
+; N/A           ; None        ; -1.400 ns  ; w[1] ; temp[3]           ; clk      ;
+; N/A           ; None        ; -1.400 ns  ; w[1] ; tempB[3]          ; clk      ;
+; N/A           ; None        ; -1.500 ns  ; w[0] ; nextState[1]~reg0 ; clk      ;
+; N/A           ; None        ; -1.600 ns  ; w[2] ; tc3               ; clk      ;
+; N/A           ; None        ; -1.600 ns  ; w[2] ; temp[3]           ; clk      ;
+; N/A           ; None        ; -1.600 ns  ; w[2] ; tempB[3]          ; clk      ;
+; N/A           ; None        ; -1.600 ns  ; w[0] ; tc3               ; clk      ;
+; N/A           ; None        ; -1.600 ns  ; w[0] ; temp[3]           ; clk      ;
+; N/A           ; None        ; -1.600 ns  ; w[0] ; tempB[3]          ; clk      ;
+; N/A           ; None        ; -1.800 ns  ; A[2] ; temp[2]           ; clk      ;
+; N/A           ; None        ; -2.000 ns  ; B[3] ; sf~reg0           ; clk      ;
+; N/A           ; None        ; -2.100 ns  ; w[0] ; nextState[0]~reg0 ; clk      ;
+; N/A           ; None        ; -2.200 ns  ; w[1] ; nextState[0]~reg0 ; clk      ;
+; N/A           ; None        ; -2.200 ns  ; w[1] ; nextState[1]~reg0 ; clk      ;
+; N/A           ; None        ; -2.300 ns  ; w[2] ; nextState[0]~reg0 ; clk      ;
+; N/A           ; None        ; -2.300 ns  ; w[1] ; c[3]~reg0         ; clk      ;
+; N/A           ; None        ; -2.300 ns  ; w[1] ; sf~reg0           ; clk      ;
+; N/A           ; None        ; -2.400 ns  ; B[3] ; tempB[2]          ; clk      ;
+; N/A           ; None        ; -2.400 ns  ; w[1] ; c[2]~reg0         ; clk      ;
+; N/A           ; None        ; -2.400 ns  ; w[1] ; carryBit          ; clk      ;
+; N/A           ; None        ; -2.500 ns  ; B[3] ; temp[2]           ; clk      ;
+; N/A           ; None        ; -2.500 ns  ; w[2] ; c[3]~reg0         ; clk      ;
+; N/A           ; None        ; -2.500 ns  ; w[2] ; sf~reg0           ; clk      ;
+; N/A           ; None        ; -2.500 ns  ; w[1] ; tempB[1]          ; clk      ;
+; N/A           ; None        ; -2.500 ns  ; w[1] ; temp[1]           ; clk      ;
+; N/A           ; None        ; -2.500 ns  ; w[1] ; tempB[2]          ; clk      ;
+; N/A           ; None        ; -2.500 ns  ; w[0] ; c[3]~reg0         ; clk      ;
+; N/A           ; None        ; -2.500 ns  ; w[0] ; sf~reg0           ; clk      ;
+; N/A           ; None        ; -2.500 ns  ; w[0] ; tempB[1]          ; clk      ;
+; N/A           ; None        ; -2.500 ns  ; w[0] ; temp[1]           ; clk      ;
+; N/A           ; None        ; -2.600 ns  ; B[3] ; tc3               ; clk      ;
+; N/A           ; None        ; -2.600 ns  ; w[2] ; c[0]~reg0         ; clk      ;
+; N/A           ; None        ; -2.600 ns  ; w[2] ; c[2]~reg0         ; clk      ;
+; N/A           ; None        ; -2.600 ns  ; w[2] ; carryBit          ; clk      ;
+; N/A           ; None        ; -2.600 ns  ; w[0] ; c[2]~reg0         ; clk      ;
+; N/A           ; None        ; -2.600 ns  ; w[0] ; carryBit          ; clk      ;
+; N/A           ; None        ; -2.700 ns  ; B[2] ; tempB[2]          ; clk      ;
+; N/A           ; None        ; -2.700 ns  ; w[2] ; tempB[1]          ; clk      ;
+; N/A           ; None        ; -2.700 ns  ; w[2] ; temp[1]           ; clk      ;
+; N/A           ; None        ; -2.700 ns  ; w[2] ; tempB[2]          ; clk      ;
+; N/A           ; None        ; -2.700 ns  ; w[0] ; nextState[2]~reg0 ; clk      ;
+; N/A           ; None        ; -2.700 ns  ; w[0] ; tempB[2]          ; clk      ;
+; N/A           ; None        ; -2.800 ns  ; w[1] ; c[0]~reg0         ; clk      ;
+; N/A           ; None        ; -2.800 ns  ; w[1] ; c[1]~reg0         ; clk      ;
+; N/A           ; None        ; -2.800 ns  ; w[0] ; c[0]~reg0         ; clk      ;
+; N/A           ; None        ; -2.900 ns  ; w[2] ; nextState[2]~reg0 ; clk      ;
+; N/A           ; None        ; -2.900 ns  ; w[1] ; temp[2]           ; clk      ;
+; N/A           ; None        ; -3.000 ns  ; B[0] ; temp[2]           ; clk      ;
+; N/A           ; None        ; -3.000 ns  ; w[2] ; c[1]~reg0         ; clk      ;
+; N/A           ; None        ; -3.000 ns  ; w[0] ; c[1]~reg0         ; clk      ;
+; N/A           ; None        ; -3.100 ns  ; w[2] ; temp[2]           ; clk      ;
+; N/A           ; None        ; -3.100 ns  ; w[1] ; cf~reg0           ; clk      ;
+; N/A           ; None        ; -3.100 ns  ; w[0] ; temp[2]           ; clk      ;
+; N/A           ; None        ; -3.300 ns  ; B[3] ; zf~reg0           ; clk      ;
+; N/A           ; None        ; -3.300 ns  ; A[3] ; temp[3]           ; clk      ;
+; N/A           ; None        ; -3.300 ns  ; w[2] ; zf~reg0           ; clk      ;
+; N/A           ; None        ; -3.300 ns  ; w[2] ; cf~reg0           ; clk      ;
+; N/A           ; None        ; -3.300 ns  ; w[0] ; cf~reg0           ; clk      ;
+; N/A           ; None        ; -3.400 ns  ; A[2] ; temp[1]           ; clk      ;
+; N/A           ; None        ; -3.400 ns  ; B[3] ; cf~reg0           ; clk      ;
+; N/A           ; None        ; -3.500 ns  ; A[0] ; c[0]~reg0         ; clk      ;
+; N/A           ; None        ; -3.500 ns  ; A[1] ; temp[2]           ; clk      ;
+; N/A           ; None        ; -3.500 ns  ; w[1] ; zf~reg0           ; clk      ;
+; N/A           ; None        ; -3.500 ns  ; w[0] ; zf~reg0           ; clk      ;
+; N/A           ; None        ; -3.600 ns  ; B[0] ; tempB[2]          ; clk      ;
+; N/A           ; None        ; -3.800 ns  ; B[3] ; carryBit          ; clk      ;
+; N/A           ; None        ; -3.900 ns  ; A[1] ; temp[1]           ; clk      ;
+; N/A           ; None        ; -4.000 ns  ; B[1] ; tempB[1]          ; clk      ;
+; N/A           ; None        ; -4.000 ns  ; B[3] ; tempB[1]          ; clk      ;
+; N/A           ; None        ; -4.200 ns  ; B[1] ; tempB[2]          ; clk      ;
+; N/A           ; None        ; -4.200 ns  ; B[3] ; temp[1]           ; clk      ;
+; N/A           ; None        ; -4.300 ns  ; B[0] ; c[0]~reg0         ; clk      ;
+; N/A           ; None        ; -4.300 ns  ; B[2] ; tempB[1]          ; clk      ;
+; N/A           ; None        ; -4.400 ns  ; A[0] ; temp[2]           ; clk      ;
+; N/A           ; None        ; -4.500 ns  ; B[0] ; temp[1]           ; clk      ;
+; N/A           ; None        ; -4.900 ns  ; A[3] ; sf~reg0           ; clk      ;
+; N/A           ; None        ; -5.100 ns  ; B[3] ; c[3]~reg0         ; clk      ;
+; N/A           ; None        ; -5.200 ns  ; A[0] ; tempB[2]          ; clk      ;
+; N/A           ; None        ; -5.200 ns  ; A[2] ; c[2]~reg0         ; clk      ;
+; N/A           ; None        ; -5.400 ns  ; A[3] ; tempB[2]          ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; A[1] ; c[1]~reg0         ; clk      ;
+; N/A           ; None        ; -5.500 ns  ; A[3] ; temp[2]           ; clk      ;
+; N/A           ; None        ; -5.700 ns  ; A[0] ; temp[1]           ; clk      ;
+; N/A           ; None        ; -5.700 ns  ; B[1] ; c[1]~reg0         ; clk      ;
+; N/A           ; None        ; -5.800 ns  ; B[0] ; tempB[1]          ; clk      ;
+; N/A           ; None        ; -5.800 ns  ; B[2] ; c[2]~reg0         ; clk      ;
+; N/A           ; None        ; -6.100 ns  ; B[0] ; carryBit          ; clk      ;
+; N/A           ; None        ; -6.100 ns  ; A[2] ; tc3               ; clk      ;
+; N/A           ; None        ; -6.100 ns  ; A[3] ; tc3               ; clk      ;
+; N/A           ; None        ; -6.200 ns  ; A[3] ; zf~reg0           ; clk      ;
+; N/A           ; None        ; -6.200 ns  ; A[3] ; cf~reg0           ; clk      ;
+; N/A           ; None        ; -6.300 ns  ; B[2] ; tc3               ; clk      ;
+; N/A           ; None        ; -6.400 ns  ; A[2] ; tempB[2]          ; clk      ;
+; N/A           ; None        ; -6.400 ns  ; B[2] ; temp[2]           ; clk      ;
+; N/A           ; None        ; -6.600 ns  ; A[0] ; tempB[1]          ; clk      ;
+; N/A           ; None        ; -6.600 ns  ; A[1] ; carryBit          ; clk      ;
+; N/A           ; None        ; -6.600 ns  ; A[3] ; carryBit          ; clk      ;
+; N/A           ; None        ; -7.000 ns  ; B[1] ; carryBit          ; clk      ;
+; N/A           ; None        ; -7.000 ns  ; A[3] ; tempB[1]          ; clk      ;
+; N/A           ; None        ; -7.200 ns  ; A[0] ; carryBit          ; clk      ;
+; N/A           ; None        ; -7.200 ns  ; A[3] ; temp[1]           ; clk      ;
+; N/A           ; None        ; -7.600 ns  ; B[0] ; tc3               ; clk      ;
+; N/A           ; None        ; -7.800 ns  ; A[2] ; carryBit          ; clk      ;
+; N/A           ; None        ; -7.900 ns  ; A[2] ; tempB[1]          ; clk      ;
+; N/A           ; None        ; -8.000 ns  ; A[1] ; tc3               ; clk      ;
+; N/A           ; None        ; -8.000 ns  ; A[3] ; c[3]~reg0         ; clk      ;
+; N/A           ; None        ; -8.100 ns  ; B[2] ; temp[1]           ; clk      ;
+; N/A           ; None        ; -8.200 ns  ; B[1] ; tc3               ; clk      ;
+; N/A           ; None        ; -8.300 ns  ; A[1] ; tempB[2]          ; clk      ;
+; N/A           ; None        ; -8.300 ns  ; B[1] ; temp[2]           ; clk      ;
+; N/A           ; None        ; -8.700 ns  ; B[2] ; carryBit          ; clk      ;
+; N/A           ; None        ; -9.100 ns  ; A[0] ; tc3               ; clk      ;
+; N/A           ; None        ; -9.800 ns  ; A[1] ; tempB[1]          ; clk      ;
+; N/A           ; None        ; -10.000 ns ; B[1] ; temp[1]           ; clk      ;
++---------------+-------------+------------+------+-------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 8.1 Build 163 10/28/2008 SJ Web Edition
+    Info: Processing started: Tue Dec 20 05:21:48 2022
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off labproject -c labproject
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Info: Clock "clk" has Internal fmax of 109.89 MHz between source register "temp[2]" and destination register "c[1]~reg0" (period= 9.1 ns)
+    Info: + Longest register to register delay is 8.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC2_D4; Fanout = 9; REG Node = 'temp[2]'
+        Info: 2: + IC(0.500 ns) + CELL(1.000 ns) = 1.500 ns; Loc. = LC4_D2; Fanout = 1; COMB Node = 'c~3292'
+        Info: 3: + IC(0.100 ns) + CELL(0.400 ns) = 2.000 ns; Loc. = LC1_D2; Fanout = 1; COMB Node = 'c~3317'
+        Info: 4: + IC(0.000 ns) + CELL(1.000 ns) = 3.000 ns; Loc. = LC2_D2; Fanout = 1; COMB Node = 'Mux5~1607'
+        Info: 5: + IC(0.400 ns) + CELL(0.800 ns) = 4.200 ns; Loc. = LC4_D1; Fanout = 1; COMB Node = 'Mux5~1590'
+        Info: 6: + IC(0.100 ns) + CELL(0.800 ns) = 5.100 ns; Loc. = LC5_D1; Fanout = 1; COMB Node = 'Mux5~1591'
+        Info: 7: + IC(0.100 ns) + CELL(0.800 ns) = 6.000 ns; Loc. = LC6_D1; Fanout = 1; COMB Node = 'Mux5~1593'
+        Info: 8: + IC(0.100 ns) + CELL(0.600 ns) = 6.700 ns; Loc. = LC7_D1; Fanout = 1; COMB Node = 'Mux5~1617'
+        Info: 9: + IC(0.000 ns) + CELL(1.000 ns) = 7.700 ns; Loc. = LC8_D1; Fanout = 1; COMB Node = 'Mux5~1606'
+        Info: 10: + IC(0.100 ns) + CELL(0.600 ns) = 8.400 ns; Loc. = LC3_D1; Fanout = 7; REG Node = 'c[1]~reg0'
+        Info: Total cell delay = 7.000 ns ( 83.33 % )
+        Info: Total interconnect delay = 1.400 ns ( 16.67 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 1.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_55; Fanout = 21; CLK Node = 'clk'
+            Info: 2: + IC(0.200 ns) + CELL(0.000 ns) = 1.500 ns; Loc. = LC3_D1; Fanout = 7; REG Node = 'c[1]~reg0'
+            Info: Total cell delay = 1.300 ns ( 86.67 % )
+            Info: Total interconnect delay = 0.200 ns ( 13.33 % )
+        Info: - Longest clock path from clock "clk" to source register is 1.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_55; Fanout = 21; CLK Node = 'clk'
+            Info: 2: + IC(0.200 ns) + CELL(0.000 ns) = 1.500 ns; Loc. = LC2_D4; Fanout = 9; REG Node = 'temp[2]'
+            Info: Total cell delay = 1.300 ns ( 86.67 % )
+            Info: Total interconnect delay = 0.200 ns ( 13.33 % )
+    Info: + Micro clock to output delay of source is 0.300 ns
+    Info: + Micro setup delay of destination is 0.400 ns
+Info: tsu for register "temp[1]" (data pin = "A[0]", clock pin = "clk") is 12.300 ns
+    Info: + Longest pin to register delay is 13.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_128; Fanout = 11; PIN Node = 'A[0]'
+        Info: 2: + IC(2.100 ns) + CELL(1.000 ns) = 5.900 ns; Loc. = LC1_D4; Fanout = 1; COMB Node = 'tc3~510'
+        Info: 3: + IC(1.200 ns) + CELL(1.000 ns) = 8.100 ns; Loc. = LC1_D17; Fanout = 5; COMB Node = 'tc3~511'
+        Info: 4: + IC(0.100 ns) + CELL(1.100 ns) = 9.300 ns; Loc. = LC4_D17; Fanout = 2; COMB Node = 'temp~478'
+        Info: 5: + IC(0.900 ns) + CELL(1.000 ns) = 11.200 ns; Loc. = LC8_D4; Fanout = 1; COMB Node = 'temp~479'
+        Info: 6: + IC(0.100 ns) + CELL(1.000 ns) = 12.300 ns; Loc. = LC5_D4; Fanout = 1; COMB Node = 'Mux13~225'
+        Info: 7: + IC(0.500 ns) + CELL(0.600 ns) = 13.400 ns; Loc. = LC3_D2; Fanout = 11; REG Node = 'temp[1]'
+        Info: Total cell delay = 8.500 ns ( 63.43 % )
+        Info: Total interconnect delay = 4.900 ns ( 36.57 % )
+    Info: + Micro setup delay of destination is 0.400 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 1.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_55; Fanout = 21; CLK Node = 'clk'
+        Info: 2: + IC(0.200 ns) + CELL(0.000 ns) = 1.500 ns; Loc. = LC3_D2; Fanout = 11; REG Node = 'temp[1]'
+        Info: Total cell delay = 1.300 ns ( 86.67 % )
+        Info: Total interconnect delay = 0.200 ns ( 13.33 % )
+Info: tco from clock "clk" to destination pin "zf" through register "zf~reg0" is 7.000 ns
+    Info: + Longest clock path from clock "clk" to source register is 1.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_55; Fanout = 21; CLK Node = 'clk'
+        Info: 2: + IC(0.200 ns) + CELL(0.000 ns) = 1.500 ns; Loc. = LC7_D15; Fanout = 2; REG Node = 'zf~reg0'
+        Info: Total cell delay = 1.300 ns ( 86.67 % )
+        Info: Total interconnect delay = 0.200 ns ( 13.33 % )
+    Info: + Micro clock to output delay of source is 0.300 ns
+    Info: + Longest register to pin delay is 5.200 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC7_D15; Fanout = 2; REG Node = 'zf~reg0'
+        Info: 2: + IC(1.400 ns) + CELL(3.800 ns) = 5.200 ns; Loc. = PIN_23; Fanout = 0; PIN Node = 'zf'
+        Info: Total cell delay = 3.800 ns ( 73.08 % )
+        Info: Total interconnect delay = 1.400 ns ( 26.92 % )
+Info: th for register "tempB[3]" (data pin = "B[3]", clock pin = "clk") is -0.500 ns
+    Info: + Longest clock path from clock "clk" to destination register is 1.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_55; Fanout = 21; CLK Node = 'clk'
+        Info: 2: + IC(0.200 ns) + CELL(0.000 ns) = 1.500 ns; Loc. = LC4_D3; Fanout = 11; REG Node = 'tempB[3]'
+        Info: Total cell delay = 1.300 ns ( 86.67 % )
+        Info: Total interconnect delay = 0.200 ns ( 13.33 % )
+    Info: + Micro hold delay of destination is 0.700 ns
+    Info: - Shortest pin to register delay is 2.700 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_125; Fanout = 11; PIN Node = 'B[3]'
+        Info: 2: + IC(0.100 ns) + CELL(0.800 ns) = 2.200 ns; Loc. = LC7_D3; Fanout = 1; COMB Node = 'Mux14~145'
+        Info: 3: + IC(0.100 ns) + CELL(0.400 ns) = 2.700 ns; Loc. = LC4_D3; Fanout = 11; REG Node = 'tempB[3]'
+        Info: Total cell delay = 2.500 ns ( 92.59 % )
+        Info: Total interconnect delay = 0.200 ns ( 7.41 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 180 megabytes
+    Info: Processing ended: Tue Dec 20 05:21:48 2022
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+

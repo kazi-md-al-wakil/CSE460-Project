@@ -1,0 +1,57 @@
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>unknown</sub_system>
+	<file>unknown</file>
+	<line>0</line>
+	<callstack>
+	0x776b74f1: l + 0x3f6007f
+	0x77673ce5: l + 0x3f1c873
+	0x7c342189: l + 0x8bead17
+	0x02351006:
+	</callstack>
+	<error>Current editor: WED, STED, RPW</error>
+	<date>Thu Dec 15 23:46:58 2022</date>
+	<version>Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition</version>
+	<full_error>Access Violation at 0X776B74F1
+Current editor: WED, STED, RPW
+Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition </full_error>
+</internal_error>
+
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>unknown</sub_system>
+	<file>unknown</file>
+	<line>0</line>
+	<callstack>
+	0x776b74f1: l + 0x3f6007f
+	0x77673ce5: l + 0x3f1c873
+	0x7c342189: l + 0x8bead17
+	0x02351006:
+	</callstack>
+	<error>Current editor: WED, RPW, STED</error>
+	<date>Fri Dec 16 14:59:45 2022</date>
+	<version>Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition</version>
+	<full_error>Access Violation at 0X776B74F1
+Current editor: WED, RPW, STED
+Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition </full_error>
+</internal_error>
+
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>unknown</sub_system>
+	<file>unknown</file>
+	<line>0</line>
+	<callstack>
+	0x776b74f1:  + 0x2f61392
+	0x77673ce5:  + 0x2f1db86
+	0x7c342189:  + 0x7bec02a
+	0x02251006:
+	</callstack>
+	<error>Current editor: WED, RPW, STED, RPW</error>
+	<date>Fri Dec 16 15:17:41 2022</date>
+	<version>Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition</version>
+	<full_error>Access Violation at 0X776B74F1
+Current editor: WED, RPW, STED, RPW
+Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition </full_error>
+</internal_error>
+
